@@ -19,8 +19,8 @@ const FooterContainer = styled.footer`
     position: fixed;
     bottom: 0;
     right: 0;
-    background-color: pink;
     padding: 0 15px;
+    background-color: white;
 `
 const FooterInformations = styled.div`
     height: 20vh;

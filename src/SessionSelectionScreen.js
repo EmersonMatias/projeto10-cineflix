@@ -29,7 +29,7 @@ export default function SessionSelectionScreen() {
             
             <Title titulo={'Selecione o horário'}></Title>
 
-            <SessionRow Days={Days} />
+            <SessionRow  Days={Days} />
 
             <Footer FilmSession={FilmSession}></Footer>
 
@@ -46,5 +46,7 @@ const SessionSelectionContainer = styled.section`
     align-items: center;
     margin-bottom: 23vh;
     padding-top: 67px;
+
 `
+
 

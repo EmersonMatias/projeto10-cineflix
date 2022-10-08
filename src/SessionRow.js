@@ -25,7 +25,9 @@ const Sessions = styled.div`
     width: 100%;
     margin-top: 30px;
     padding-left: 30px;
-    background-color: pink;
+    flex-direction: column;
+    justify-content: center;
+    
 
     .SessionsTitle{
         font-size: 20px;
@@ -42,3 +44,5 @@ const Sessions = styled.div`
         margin-right: 20px;
     }
 `
+
+
