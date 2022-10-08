@@ -1,11 +1,15 @@
 import styled from "styled-components"
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
         <HeaderContainer>
-            <HeaderTitle>
-                CINEFLIX
-            </HeaderTitle>
+            <Link to={`/`}>
+                <HeaderTitle>
+                    CINEFLIX
+                </HeaderTitle>
+            </Link>
+
         </HeaderContainer>
     )
 }
@@ -18,6 +22,9 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration-line: none;
+    position: fixed;
+    width: 100%;
 `
 const HeaderTitle = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,700;1,400&display=swap');
@@ -25,5 +32,4 @@ const HeaderTitle = styled.div`
     color: #E8833A;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-
 `

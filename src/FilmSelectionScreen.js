@@ -1,22 +1,28 @@
 import styled from "styled-components"
+import { Link } from 'react-router-dom'
+import Title from "./Title"
 
 
+export default function FilmSelection({ FilmList }) {
 
-export default function FilmSelection({FilmList}) {
-    
-    
-    
+
     return (
         <FilmSelectionContainer>
-            <FilmSelectionTitle>Selecione o filme</FilmSelectionTitle>
+
+            <Title titulo={'Selecione o filme'} />
+
             <FilmSelectionRow>
                 {FilmList.map((items) => (
-                      <Film>
-                        <img src={items.posterURL}/>
-                      </Film>
+                    <Link to={`/sessoes/${items.id}`} key={items.id}>
+                        <Film>
+                            <img src={items.posterURL} alt={items.title} />
+                        </Film>
+                    </Link>
+
                 )
                 )}
             </FilmSelectionRow>
+
         </FilmSelectionContainer>
     )
 }
@@ -28,13 +34,7 @@ const FilmSelectionContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
-
-const FilmSelectionTitle = styled.div`
-    font-size: 24px;
-    color: #293845;
-    margin-top: 30px;
-    background-color: white;
+    padding-top: 67px;
 `
 
 const FilmSelectionRow = styled.div`
@@ -56,7 +56,7 @@ const Film = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 3px;
 
     img{
