@@ -7,10 +7,10 @@ export default function SessionRow({ Days }) {
             {Days.map((item) => (
 
                 <Sessions key={item.id}>
-                    <div className="SessionsTitle">{item.weekday} - {item.date}</div>
+                    <div className="SessionsTitle" data-identifier="session-date">{item.weekday} - {item.date}</div>
                     {item.showtimes.map((subitem) => (
                         <Link to={`/assentos/${subitem.id}`} key={subitem.id}>
-                            <button className="SessionsHours" >{subitem.name}</button>
+                            <button className="SessionsHours" data-identifier="hour-minute-btn">{subitem.name}</button>
                         </Link>
                     ))}
                 </Sessions>

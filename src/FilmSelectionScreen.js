@@ -15,7 +15,7 @@ export default function FilmSelection({ FilmList }) {
                 {FilmList.map((items) => (
                     <Link to={`/sessoes/${items.id}`} key={items.id}>
                         <Film>
-                            <img src={items.posterURL} alt={items.title} />
+                            <img src={items.posterURL} alt={items.title} data-identifier="movie-outdoor" />
                         </Film>
                     </Link>
 

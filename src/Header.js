@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 export default function Header() {
     return (
         <HeaderContainer>
-            <Link to={`/`}>
+            <StyledLink to={`/`}>
                 <HeaderTitle>
                     CINEFLIX
                 </HeaderTitle>
-            </Link>
+            </StyledLink>
 
         </HeaderContainer>
     )
@@ -32,4 +32,8 @@ const HeaderTitle = styled.div`
     color: #E8833A;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+`
+
+const StyledLink = styled(Link)`
+text-decoration: none;
 `

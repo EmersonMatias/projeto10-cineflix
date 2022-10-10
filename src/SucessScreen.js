@@ -15,18 +15,18 @@ export default function SucessScreen({ Name, cpf, Film, Hour, Data, ReservedSeat
             <div className="Title"> Pedido feito com sucesso!</div>
 
             <Informations>
-                <div className="FilmInformations">
+                <div className="FilmInformations" data-identifier="movie-session-infos-reserve-finished">
                     <div className="SubTitles">Fiilme e sessão</div>
                     {Film}<br />
                     {Data} {Hour}
                 </div>
 
-                <div className="Tickets">
+                <div className="Tickets" data-identifier="seat-infos-reserve-finished">
                     <div className="SubTitles">Ingressos</div>
                     {ReservedSeat.map((item) => (<>Assento {item} <br /></>))}
                 </div>
 
-                <div className="Buyer">
+                <div className="Buyer" data-identifier="buyer-infos-reserve-finished">
                     <div className="SubTitles">Comprador</div>
                     Nome: {Name} <br />
                     CPF:  {cpf}
@@ -34,7 +34,7 @@ export default function SucessScreen({ Name, cpf, Film, Hour, Data, ReservedSeat
             </Informations>
             
             <Link to='/'>
-                <button onClick={Reset} className="BackHome">Voltar para Home</button>
+                <button onClick={Reset} className="BackHome" data-identifier="back-to-home-btn">Voltar para Home</button>
             </Link>
 
         </SucessScreenContainer>
@@ -45,7 +45,6 @@ const SucessScreenContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
     padding-top: 67px;
     width: 100%;
     font-size: 22px;
@@ -59,7 +58,6 @@ const SucessScreenContainer = styled.section`
         align-items: center;
         justify-content: center;
         text-align: center;
-        background-color: yellow;
         width: 100vw;
         height: 150px;
         margin-bottom: 20px;

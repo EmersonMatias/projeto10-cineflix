@@ -36,7 +36,7 @@ export default function SeatSection({ Name, setName, cpf, setCpf,setHour, setDat
 
 
         function Sucesso(){
-            alert("Ingresos comprados com sucesso")
+            alert("Ingressos comprados com sucesso!")
             navigate('/sucesso')
             
         }
@@ -65,16 +65,16 @@ export default function SeatSection({ Name, setName, cpf, setCpf,setHour, setDat
                 <Seat SeatList={SeatList} setSeatSelect={setSeatSelect} SeatSelect={SeatSelect} ReservedSeat={ReservedSeat} setReservedSeat={setReservedSeat}  />
             </SeatsContainer>
 
-            <SeatsLegend>
+            <SeatsLegend >
                 <div className="Legend">
-                    <div className="Selected"></div>
+                    <div className="Selected" data-identifier="seat-selected-subtitle"></div>
                     Selecionado
                 </div>
-                <div className="Legend">
+                <div className="Legend" data-identifier="seat-available-subtitle">
                     <div className="Available"></div>
                     Disponível
                 </div>
-                <div className="Legend">
+                <div className="Legend" data-identifier="seat-unavailable-subtitle">
                     <div className="Unavailable"></div>
                     Indisponível
                 </div>
@@ -89,6 +89,7 @@ export default function SeatSection({ Name, setName, cpf, setCpf,setHour, setDat
                         placeholder="Digite seu nome..."
                         value={Name}
                         onChange={(e) => (setName(e.target.value))}
+                        data-identifier="buyer-name-input"
                     />
 
                     <label>CPF do comprador</label>
@@ -98,9 +99,10 @@ export default function SeatSection({ Name, setName, cpf, setCpf,setHour, setDat
                         placeholder="Digite seu CPF..."
                         value={cpf}
                         onChange={(e) => (setCpf(e.target.value))}
+                        data-identifier="buyer-cpf-input"
                     />
 
-                    <button type="submit">Reservar assento (s)</button>
+                    <button type="submit" data-identifier="reservation-btn">Reservar assento (s)</button>
 
                 </form>
             </BuyerInformations>
@@ -122,7 +124,6 @@ const SeatSelectionContainer = styled.section`
 `
 
 const SeatsContainer = styled.div`
-    background-color: pink;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -132,7 +133,6 @@ const SeatsContainer = styled.div`
 `
 
 const SeatsLegend = styled.div`
-    background-color: yellow;
     display: flex;
     width: 90vw;
     justify-content: center;
@@ -169,7 +169,6 @@ const BuyerInformations = styled.div`
     .Formulario{
         display: flex;
         flex-direction: column;
-        background-color: pink;
         width: 90vw;
         align-items: center;
 

@@ -18,11 +18,11 @@ export default function Seat({ SeatList, setSeatSelect, SeatSelect, ReservedSeat
 
     function CheckSeat(isAvailable, Selected) {
         if (isAvailable === false) {
-            return 'red'
+            return '#FBE192'
         } else if (SeatSelect.includes(Number(Selected))) {
-            return 'orange'
+            return '#1AAE9E'
         } else if (isAvailable === true) {
-            return 'green'
+            return '#C3CFD9'
         }
     }
 
@@ -35,7 +35,7 @@ export default function Seat({ SeatList, setSeatSelect, SeatSelect, ReservedSeat
                     Selected={item.id}
                     onClick={() => ( item.isAvailable === false ? alert("Esse lugar já está reservado") : SelectSeat(item.id, item.name))}
                     key={item.id}
-                >{item.name}
+                ><div data-identifier="seat">{item.name}</div>
                 </SeatContainer>
             ))}
         </>
