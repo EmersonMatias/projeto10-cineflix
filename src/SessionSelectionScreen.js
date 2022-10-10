@@ -9,8 +9,7 @@ import Title from "./Title"
 export default function SessionSelectionScreen({setFilm, FilmSession, setFilmSession}) {
     const [Days, setDays] = useState([])
     const { filmID } = useParams()
-    console.log(FilmSession, "aquii")
-    console.log(Days)
+
 
     useEffect(() => {
         function set(res) {
