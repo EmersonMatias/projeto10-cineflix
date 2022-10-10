@@ -4,23 +4,20 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Seat from "./Seat"
 import Title from "./Title"
+import Footer from "./Footer"
 
-export default function SeatSection({ Name, setName, cpf, setCpf }) {
+export default function SeatSection({ Name, setName, cpf, setCpf,setHour, setData, ReservedSeat, setReservedSeat,FilmSession, Hour, setDay, Day}) {
     const [Seats, setSeats] = useState([])
     const [SeatList, setSeatList] = useState([])
     const [SeatSelect, setSeatSelect] = useState([])
     const { seatID } = useParams()
     const navigate = useNavigate()
-    console.log(Name)
-    console.log(Seats)
-    console.log(SeatList)
-    console.log(SeatSelect, "AQUI")
-    console.log(cpf)
+   
 
 
     useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${seatID}/seats`)
-            .then((res) => (setSeats(res.data), setSeatList(res.data.seats)))
+            .then((res) => (setSeats(res.data), setSeatList(res.data.seats), setHour(res.data.name), setData(res.data.day.date), setDay(res.data.day.weekday)))
             .catch(console.log("Algo deu errado"))
 
     }, [])
@@ -31,16 +28,17 @@ export default function SeatSection({ Name, setName, cpf, setCpf }) {
         cpf
     }
 
-    
-
-    
+  
 
     function ReservarAssentos(e){
         e.preventDefault()
+    
+
 
         function Sucesso(){
             alert("Ingresos comprados com sucesso")
             navigate('/sucesso')
+            
         }
 
 
@@ -64,7 +62,7 @@ export default function SeatSection({ Name, setName, cpf, setCpf }) {
             <Title titulo={'Selecione o(s) assento(s)'}></Title>
 
             <SeatsContainer>
-                <Seat SeatList={SeatList} setSeatSelect={setSeatSelect} SeatSelect={SeatSelect} />
+                <Seat SeatList={SeatList} setSeatSelect={setSeatSelect} SeatSelect={SeatSelect} ReservedSeat={ReservedSeat} setReservedSeat={setReservedSeat}  />
             </SeatsContainer>
 
             <SeatsLegend>
@@ -107,6 +105,8 @@ export default function SeatSection({ Name, setName, cpf, setCpf }) {
                 </form>
             </BuyerInformations>
 
+            <Footer FilmSession={FilmSession} Hour={Hour} Day={Day}></Footer>
+       
 
         </SeatSelectionContainer>
     )
@@ -118,6 +118,7 @@ const SeatSelectionContainer = styled.section`
     align-items: center;
     width: 100%;
     padding-top: 67px;
+    margin-bottom: 23vh;
 `
 
 const SeatsContainer = styled.div`

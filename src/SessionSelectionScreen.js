@@ -6,22 +6,22 @@ import axios from "axios"
 import SessionRow from "./SessionRow"
 import Title from "./Title"
 
-export default function SessionSelectionScreen() {
-    const [FilmSession, setFilmSession] = useState({})
+export default function SessionSelectionScreen({setFilm, FilmSession, setFilmSession}) {
     const [Days, setDays] = useState([])
     const { filmID } = useParams()
-    console.log(FilmSession)
+    console.log(FilmSession, "aquii")
     console.log(Days)
 
     useEffect(() => {
         function set(res) {
             setFilmSession(res.data)
             setDays(res.data.days)
+            setFilm(res.data.title)
         }
 
         axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${filmID}/showtimes`)
             .then((res) => (set(res)))
-            .catch(console.log('Deu erro'))
+            .catch((e) => console.log(e.response.data))
     }, [])
 
     return (

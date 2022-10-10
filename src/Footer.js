@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export default function Footer({FilmSession}){
+export default function Footer({FilmSession, Hour, Day}){
     return(
         <FooterContainer>
 
             <FooterInformations>
                 <img src={FilmSession.posterURL} alt={FilmSession.title}></img>
-                <div>{FilmSession.title}</div>
+                <div>{FilmSession.title}<br/> {Day} - {Hour}</div>
+                
             </FooterInformations>
             
         </FooterContainer>
